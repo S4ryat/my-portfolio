@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Sara Khif</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#accueil" class="active">Accueil</a></li>
+            <li><a href="#a-propos">À propos de moi</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#veilles">Veilles technologiques</a></li>
+            <li><a href="#experiences">Expériences professionnelles</a></li>
+            <li><a href="#contact">Contactez-moi</a></li>
+        </ul>
+    </nav>
+
+    <section id="accueil">
+        <h1>Bienvenue sur mon portfolio !</h1>
+        <p>Je suis Sara Khif,et je suis développeuse web</p>
+    </section>
+
+    <section id="a-propos">
+        <div class="container">
+            <img src="img/cropped-ipssi-favicon.png" alt="Photo" data-aos="fade-right">
+            <div data-aos="fade-left">
+                <h2>À propos de moi</h2>
+                <p>Je suis Sara Khif, étudiante en première année de BTS Services Informatiques aux Organisations (SIO) option Solutions Logicielles et Applications Métiers (SLAM) à l'IPSSI. <br> <br> L'IPSSI est reconnue pour son enseignement de qualité en informatique et digital. Je me spécialise dans le développement de solutions logicielles adaptées aux entreprises grâce à l'option SLAM, combinant théorie et pratique pour une préparation complète au monde professionnel.</p>
+                <button onclick="window.location.href='cv BACK.pdf'">Télécharger mon CV</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences">
+    <h2>Compétences techniques</h2>
+    <div class="skills" data-aos="fade-up">
+        <div class="skill">
+            <img src="img/html-logo-removebg-preview.png" alt="HTML Logo">
+            <h3>HTML</h3>
+            <p class="level">Avancé</p>
+        </div>
+        <div class="skill">
+            <img src="img/css_logo-removebg-preview.png" alt="CSS Logo">
+            <h3>CSS</h3>
+            <p class="level">Intermédiaire</p>
+        </div>
+        <div class="skill">
+            <img src="img/js_logo-removebg-preview.png" alt="JavaScript Logo">
+            <h3>JavaScript</h3>
+            <p class="level">Intermédiaire</p>
+        </div>
+        <div class="skill">
+            <img src="img/python_logo-removebg-preview.png" alt="Python Logo">
+            <h3>Python</h3>
+            <p class="level">Débutant</p>
+        </div>
+    </div>
+</section>
+
+
+    <section id="projets">
+        <h2>Projets personnels</h2>
+        <div class="projects" data-aos="fade-up">
+            <div class="project">
+                <a href="">
+                    <img src="img/AP1.png" alt="AP1">
+                    <button><p>Projet AP1</p></button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+<section id="veilles_technologiques">
+    <h2>Veilles technologiques</h2>
+    <div class="veille">
+        <img src="img/mor.png" alt="Aperçu de la Veille 1">
+        <h3>Le ver informatique: MORRIS II</h3>
+        <a href="pdf/veille1.pdf" target="_blank">Voir PDF</a>
+    </div>
+</section>
+
+
+    <section id="experiences">
+        <h2>Expériences professionnelles</h2>
+        <article data-aos="fade-up">
+            <h3>Stage 1</h3>
+            <p>Description de l'expérience professionnelle.</p>
+        </article>
+        <article data-aos="fade-up">
+            <h3>Stage 2</h3>
+            <p>Description de l'expérience professionnelle.</p>
+        </article>
+    </section>
+
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        <form action="mailto:sara.khif@example.com" method="post" enctype="text/plain" data-aos="fade-up">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" placeholder="Votre message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+        <div class="social-links" data-aos="fade-up">
+            <a href="https://github.com/sarakhif">GitHub</a>
+            <a href="https://linkedin.com/in/sarakhif">LinkedIn</a>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Active menu link switching
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    <img src="img/kitty_tattoo__33-removebg-preview.png" class="hello-kitty-icon" style="bottom: 10px; left: 10px;" />
+    <img src="img/téléchargement__1_-removebg-preview.png" class="hello-kitty-icon" style="bottom: 10px; right: 10px;" />
+</body>
+</html>
