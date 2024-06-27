@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./toodoo.css">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <script src="./totado.js"></script>
+    <title>Mes TooDoo's</title>
+  </head>
+  <body>
+    <div class="nav-content">
+      <nav>
+        <img src="./t_d__2_-removebg-preview.png" alt="Logo" class="nav-logo" />
+        <ul class="nav-links">
+          <li><a href="./index.html">Accueil</a></li>
+          <li><a href="./toodoo.html">Mes Toodoo's</a></li>
+          <li><a href="#">Aide</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <h1>Mes Toodoo's: </h1>
+
+    <form id="matache">
+        <input type="text" id="tache" placeholder="Écris ta tâche">
+        <button type="submit">Ajouter</button>
+    </form>
+    <div class="list-box">
+        <h1>Ma Liste de Toodoo :</h1>
+        <ul id="myList"></ul>
+        <!-- Ajout du formulaire directement dans la liste -->
+        <form id="editForm" style="display: none;">
+            <input type="text" id="editTache" placeholder="Éditer la tâche">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('matache').addEventListener('submit', function(event) {
+          event.preventDefault(); // Empêche le formulaire de se soumettre
+  
+          var tacheInput = document.getElementById('tache');
+          var tacheText = tacheInput.value.trim();
+  
+          if (tacheText !== '') {
+            // Crée un nouvel élément li
+            var listItem = document.createElement('li');
+  
+            // Crée une case à cocher
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+  
+            // Crée un élément label pour afficher le texte de la tâche
+            var label = document.createElement('label');
+            label.textContent = tacheText;
+  
+            // Crée un bouton de suppression
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Supprimer';
+            deleteButton.addEventListener('click', function() {
+              // Supprime l'élément li parent lors du clic sur le bouton
+              listItem.remove();
+            });
+
+            // Crée un bouton "Modifier"
+            var editButton = document.createElement('button');
+            editButton.textContent = 'Modifier';
+            editButton.addEventListener('click', function() {
+              // Change le bouton "Modifier" en "Sauvegarder"
+              if (editButton.textContent === 'Modifier') {
+                editButton.textContent = 'Sauvegarder';
+                document.getElementById('editTache').value = label.textContent; // Pré-remplit le champ de saisie avec le texte actuel
+                document.getElementById('editForm').style.display = 'block'; // Affiche le formulaire d'édition
+                document.getElementById('saveEdit').style.display = 'block'; // Affiche le bouton "Sauvegarder"
+                tacheInput.disabled = true; // Désactive le champ de saisie pendant la modification
+                listItem.classList.add('editing'); // Ajoute une classe pour le style de modification
+              } else {
+                // Change le bouton "Sauvegarder" en "Modifier" après la sauvegarde
+                editButton.textContent = 'Modifier';
+                label.textContent = document.getElementById('editTache').value; // Met à jour le texte de la tâche dans l'élément li
+                document.getElementById('editTache').value = '';
+                document.getElementById('editForm').style.display = 'none'; // Masque le formulaire d'édition
+                document.getElementById('saveEdit').style.display = 'none';
+                tacheInput.disabled = false; 
+                listItem.classList.remove('editing');
+              }
+            });
+  
+            // Ajoute la case à cocher, le label, le bouton de suppression et le bouton "Modifier" à l'élément li
+            listItem.appendChild(checkbox);
+            listItem.appendChild(label);
+            listItem.appendChild(deleteButton);
+            listItem.appendChild(editButton);
+  
+            // Ajoute l'élément li à la liste
+            document.getElementById('myList').appendChild(listItem);
+  
+            // Efface le champ de saisie
+            tacheInput.value = '';
+          }
+        });
+
+        document.getElementById('saveEdit').addEventListener('click', function() {
+          var listItem = document.querySelector('.editing');
+          if (listItem) {
+            var label = listItem.querySelector('label');
+            label.textContent = document.getElementById('editTache').value; // Met à jour le texte de la tâche dans l'élément li
+            document.getElementById('editTache').value = ''; // Efface le champ de saisie
+            document.getElementById('editForm').style.display = 'none'; // Masque le formulaire d'édition
+            document.getElementById('saveEdit').style.display = 'none'; // Masque le bouton "Sauvegarder"
+            document.getElementById('tache').disabled = false; // Réactive le champ de saisie après la sauvegarde
+            listItem.classList.remove('editing'); // Retire la classe de modification
+          }
+        });
+      </script>
+    
+  </body>
+</html>

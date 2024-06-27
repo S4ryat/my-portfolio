@@ -1,0 +1,124 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+
+
+/* Style pour la barre de navigation */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Style pour le logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+.container {
+    width: 350px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 12px;
+}
+/* Style pour chaque recette */
+.recipe {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 20px; /* Ajoutez de l'espace autour du contenu */
+}
+
+
+/* Animation de survol pour les recettes */
+.recipe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Style pour le titre de la recette */
+.recipe h2 {
+    margin: 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style pour l'image de la recette */
+.recipe img {
+    width: 100%;
+    display: block;
+}
+
+/* Style pour les étapes de la recette */
+.recipe ol {
+    margin: 0;
+    padding: 10px;
+}
+
+.recipe ol li {
+    list-style: none;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+/* Style pour le pied de page */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+#searchInput {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.logo {
+    width: 380px;
+    
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #ff3300;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #f8760b;
+}
+
+
+.footer:hover {
+    background-color: #555;
+}

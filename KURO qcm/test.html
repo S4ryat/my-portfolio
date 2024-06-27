@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disney</title>
+<style>
+  /* Style pour les carrés bleu clair */
+  .character {
+    background-color: #ADD8E6; /* Bleu clair */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    display: inline-block; /* Pour que les éléments s'affichent côte à côte */
+  }
+</style>
+</head>
+<body>
+<div id="characters" method="GET"></div>
+
+<script>
+fetch('https://api.disneyapi.dev/character', {
+ method: 'GET',
+ headers: {
+ // Format de données que l'on accepte
+ "Accept" : "application/json",
+ // Format de données qu'on envoit
+ "Content-type" : "application/json",
+ }
+})
+ .then(res => res.json())
+ .then(body => console.log(body))
+
+</script>
+</body>
+</html>

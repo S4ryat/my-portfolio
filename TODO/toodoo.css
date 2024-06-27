@@ -1,0 +1,30 @@
+#matache {
+    margin-left: 30px;
+}
+
+.list-box {
+    border: 1px solid #4b4a4a;
+    padding: 30px;
+    width: 200px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 60px;
+}
+
+ul {
+    list-style-type: none; /* Supprime le point à gauche de la liste */
+    padding: 0; /* Supprime le padding par défaut de la liste */
+  }
+
+  li {
+    margin-bottom: 10px; /* Ajoute un espace entre les éléments de la liste */
+  }
+
+  button.delete-button {
+    background-color: #ff5555;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+  }

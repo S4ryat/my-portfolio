@@ -1,0 +1,40 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex; /* Utilisation de flexbox */
+    flex-wrap: wrap; /* Permettre le retour à la ligne */
+    justify-content: space-between; /* Espacement égal entre les éléments */
+}
+
+.recipe {
+    width: calc(33.33% - 20px); /* Largeur de chaque élément pour afficher trois par ligne */
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 20px; /* Ajout de l'espacement intérieur */
+    box-sizing: border-box; /* Inclure le padding dans la largeur */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animation de survol */
+.recipe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Style pour le titre de la recette */
+.recipe h2 {
+    margin: 0;
+    padding: 10px 0; /* Ajuster le padding */
+    font-size: 18px;
+    text-align: center; /* Centrer le texte */
+}
+
+/* Style pour l'image de la recette */
+.recipe img {
+    width: 100%;
+    display: block;
+    border-radius: 5px; /* Ajouter une bordure arrondie */
+}

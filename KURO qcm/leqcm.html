@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM JavaScript</title>
+    <link rel="stylesheet" href="qcm.css">
+</head>
+<body>
+    <div class="top">
+        <div class="title">KUROquizz</div>
+        <img src="kuro.png">
+    </div>
+    <div id="quiz"></div>
+    <button id="check-answers">Vérifier les réponses</button>
+
+    <script>
+        const questions = [
+            {
+                id: 1,
+                question: 'Qui est Brendan Eich ?',
+                reponses: {
+                    a: 'Le fils de Douglas Eich',
+                    b: 'Le ministre de l\'éducation Finlandaise',
+                    c: 'Le créateur de Javascript',
+                    d: 'L\'inventeur de Chat GPT'
+                },
+                correction: 'c'
+            },
+            {
+                id: 2,
+                question: 'Javascript a été créé à partir de Java ?',
+                reponses: {
+                    a: 'Vrai',
+                    b: 'Faux',
+                },
+                correction: 'b'
+            },
+            {
+                id: 3,
+                question: 'Qu\'est ce qu\'un objet en JS ?',
+                reponses: {
+                    a: 'Une paire de clés',
+                    b: 'Une entité cosmique',
+                    c: 'Un conteneur d\'informations',
+                    d: 'Rien d\'intéressant',
+                },
+                correction: 'c'
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz');
+
+        function displayQuestions() {
+            questions.forEach(question => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                questionDiv.innerHTML = `
+                    <p>${question.question}</p>
+                    <div class="answers">
+                        ${Object.entries(question.reponses).map(([key, value]) => `
+                            <div class="answer" data-question-id="${question.id}" data-answer="${key}">
+                                <input type="radio" id="answer-${question.id}-${key}" name="answer-${question.id}">
+                                <label for="answer-${question.id}-${key}">${value}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function displayCorrectAnswers() {
+            questions.forEach(question => {
+                const correctAnswerElement = document.querySelector(`.answer[data-question-id="${question.id}"][data-answer="${question.correction}"]`);
+                correctAnswerElement.classList.add('correct-answer');
+            });
+        }
+
+        displayQuestions();
+
+        // Au clic sur un bouton de vérification
+        document.getElementById('check-answers').addEventListener('click', () => {
+            displayCorrectAnswers();
+        });
+    </script>
+</body>
+</html>
